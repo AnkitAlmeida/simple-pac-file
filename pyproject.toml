@@ -1,0 +1,14 @@
+[project]
+name = "simple-pac-file"
+version = "0.1.0"
+description = "Parse PAC files to extract the FindProxyForURL function and DNS helper calls without executing JavaScript"
+requires-python = ">=3.10"
+dependencies = []
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
