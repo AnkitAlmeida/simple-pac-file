@@ -21,3 +21,10 @@ The trade-off: the parser is lexical, not a full JavaScript grammar. It tracks s
 ## Edge you will hit
 
 If the PAC file has no top-level `FindProxyForURL`, `parse_pac` raises `PacParseError`. A function nested inside another function is not mistaken for the top-level one, but its body is part of the outer function's extracted text. The extracted source is the exact character slice from `function` to the matching closing brace; indentation and surrounding whitespace are preserved as written.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
